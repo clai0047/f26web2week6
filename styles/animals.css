@@ -133,3 +133,47 @@ main section:nth-child(2n){
 /*justify-self only works because of display: grid on the main element*/
 justify-self:end;
 }
+
+/*********** TAPE EFFECT AND PSEUDO ELEMENTS***********/ 
+
+article{
+	background:white;
+	border: 1px solid #aaa;
+	box-shadow: 2px 2px 4px rgb(50,50,50);
+}
+
+header article{
+	padding:10px;
+	margin:20px 0;
+}
+
+section article{
+	padding:23px;
+	position:relative;
+
+
+}
+
+section article img{
+	/*a space meams go inside the element- this targets only images inside of article inside sections*/
+	max-width: 100%;
+}
+
+section article:before{ 
+	/* ::before is a pseudo element - every html element has a :: before and a :: after*/
+	content: " ";
+
+	width: 160px;
+	height: 45px;
+	/*with rgb and hsl you can add an alpha channel, or transparency
+	the alpha channel is a value between 0and 1, where 1 is fully opaque
+	and 0 is transparent*/
+	background-color: rgba(222,222,222,0.6); 
+	/*pseudo elements have to be positioned using absolute*/
+	position:absolute;
+	left:calc(50% - 80px); /* add spaces around - or + */
+	/*calc lets you add or subtract different unit types*/
+	top:-23px;
+
+	transform: rotate(-15deg);
+}
