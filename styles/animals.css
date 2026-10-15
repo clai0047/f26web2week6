@@ -98,4 +98,38 @@ main{
 	/* box-sizing: border - box makes the browser include the padding and border within the total width set
 	for the element- meaning adding padding and border will not add extra width*/
 	box-sizing: border-box;
+
+	border:25px solid #542454;
+
+	border-radius: 25px;
+	
+
+	/* for box shadow, the values are:
+	type
+	horizontal offset
+	vertical offset
+	size
+	blur (which we arent using0
+	colour*/
+	box-shadow: 5px 5px 10px black, inset 3px 3px 7px black;
+
+	display:grid;
+	grid-template-columns: 1fr;
+
+}
+
+/************* PICTURES AND CONTENT ***************/
+/*header counts as first child*/
+
+/* it is always good idea to put a line height on your text*/
+P{
+	line-height: 1.5;
+}
+section{
+	width:350px;
+}
+/* use nth-child (or nth-of-type) to select alternating elements...*/
+main section:nth-child(2n){
+/*justify-self only works because of display: grid on the main element*/
+justify-self:end;
 }
