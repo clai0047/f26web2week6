@@ -46,7 +46,10 @@
 			Custom Properties
 ********************************/
 
-
+/*root is a style that applies to all your css/html*/
+:root{
+	--purply-purple:#542454;
+}
 
 /********************************
 			Main
@@ -85,7 +88,7 @@ footer{
 
 main{
 						/*to center an element in the browser....*/
-	width:80%;
+	width:960px;
 	margin:0 auto;
 
 	background-image: url('../images/corkback.jpg');
@@ -99,9 +102,11 @@ main{
 	for the element- meaning adding padding and border will not add extra width*/
 	box-sizing: border-box;
 
-	border:25px solid #542454;
+	border:25px solid var(--purply-purple);
+	border-top:0; /*remove top border*/
 
-	border-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
 	
 
 	/* for box shadow, the values are:
@@ -176,4 +181,90 @@ section article:before{
 	top:-23px;
 
 	transform: rotate(-15deg);
+}
+
+/****** outer pseudo classes include: first-line, first letter, and select*/
+
+h1 span{
+	/*first letter only works on block elements, so if you use spans you have to make them block*/
+	display:block; 
+}
+
+h1 span::first-letter{
+	font-family:"Moo Lah Lah", cursive;
+	font-size:1.3em;
+}
+
+p::selection{
+	/*changes the colour when you highlight some text*/
+	color: #ebbc2e;
+	background-color: brown;
+}
+
+				/* DIRECT SELECTORS AND DROP DOWN NAV*/
+
+nav{
+	font-size: 2em;
+	width: 960px;
+	margin: 0 auto;
+
+	background:var(--purply-purple);
+
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+
+	position:sticky;
+	top:0; /*TELLS YOU WHERE TO STICK IT*/
+	z-index: 10;
+	/* z-index is like layers, ut they are arbitrary...
+	by default everything is on layer 1,
+	and anything higher is "on top"*/
+
+	height: 55px;
+}
+
+nav > ul{
+	display:flex;
+	justify-content:flex-end;
+	padding-top:20px;
+}
+/* select only the li that are direct children of the ul, which is a direct child of the nav*/
+nav > ul > li{
+	padding:0 10px;
+	position:relative;
+
+}
+nav ul ul{
+	display:none;
+}
+nav ul li:hover ul{
+	display:block;
+	position:absolute;
+	background-color:var(--purply-purple);
+
+}
+
+nav a{
+	color:white;
+	text-decoration:none;  /* removes underline*/
+}
+
+/************* ATTRIBUTE SELECTORS***************/
+
+/* attribute selectors grab part of an html attribute..
+a[href] targets any a tag with an href (regardless of the value of that href)
+or,by the value;
+=means matches exactly
+^=means begins with
+$=means ends with
+*=means contains*/
+
+/* select all the links w href containing the word "wiki"*/
+
+a[href*="wiki"]{
+	background-image:url("../images/wikipedia-icon.png");
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:top left;
+	padding-left:1.5em;
 }
