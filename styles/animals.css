@@ -83,3 +83,19 @@ footer{
 	Special (added in class)
 ********************************/
 
+main{
+						/*to center an element in the browser....*/
+	width:80%;
+	margin:0 auto;
+
+	background-image: url('../images/corkback.jpg');
+
+	/* three values on padding or margin means:
+		top,left and right,bottom*/
+
+	padding: 25px 45px 45px;
+
+	/* box-sizing: border - box makes the browser include the padding and border within the total width set
+	for the element- meaning adding padding and border will not add extra width*/
+	box-sizing: border-box;
+}
